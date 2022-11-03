@@ -52,3 +52,5 @@ func setElevation(vec Vector) angle.Angle {
 
 	return angle.New(math.Acos(u / v))
 }
+
+func (props Properties) GetProperties() (float64, float64, float64, float64, float64)
