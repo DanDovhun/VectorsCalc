@@ -15,12 +15,14 @@ type Vector struct {
 }
 
 func New(name string, x, y, z float64) Vector {
-	return Vector{
+	vec := Vector{
 		Name: name,
 		X:    x,
 		Y:    y,
 		Z:    z,
 	}
+
+	return vec
 }
 
 func (vec Vector) Magnitude() float64 {

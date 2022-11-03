@@ -28,29 +28,32 @@ func NewProperties(vec Vector) Properties {
 
 func setAlpha(vec Vector) angle.Angle {
 	u := vec.Magnitude()
-	return angle.New(math.Acos(u / vec.X))
+
+	return angle.New(math.Acos(vec.X / u))
 }
 
 func setBeta(vec Vector) angle.Angle {
 	u := vec.Magnitude()
-	return angle.New(math.Acos(u / vec.Y))
+	return angle.New(math.Acos(vec.Y / u))
 }
 
 func setGamma(vec Vector) angle.Angle {
 	u := vec.Magnitude()
-	return angle.New(math.Acos(u / vec.Z))
+	return angle.New(math.Acos(vec.Z / u))
 }
 
 func setRotation(vec Vector) angle.Angle {
 	v := math.Sqrt(math.Pow(vec.X, 2) + math.Pow(vec.Y, 2))
-	return angle.New(math.Acos(v / vec.X))
+	return angle.New(math.Acos(vec.X / v))
 }
 
 func setElevation(vec Vector) angle.Angle {
 	u := vec.Magnitude()
 	v := math.Sqrt(math.Pow(vec.X, 2) + math.Pow(vec.Y, 2))
 
-	return angle.New(math.Acos(u / v))
+	return angle.New(math.Acos(v / u))
 }
 
-func (props Properties) GetProperties() (float64, float64, float64, float64, float64)
+func (props Properties) GetProperties() (angle.Angle, angle.Angle, angle.Angle, angle.Angle, angle.Angle) {
+	return props.Alpha, props.Beta, props.Gamma, props.Elevation, props.Rotation
+}
