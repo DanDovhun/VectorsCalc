@@ -1,9 +1,10 @@
 package two_dim
 
 import (
-	"Vectors/angle"
 	"fmt"
 	"math"
+
+	"github.com/DanDovhun/VectorsCalc/angle"
 )
 
 type Vector struct {
