@@ -14,7 +14,7 @@ type Vector struct {
 }
 
 // New serves as a constructor for the Vector struct
-func New(name string, x, y float64) Vector {
+var New = func(name string, x, y float64) Vector {
 	return Vector{
 		Name: name,
 		X:    x,

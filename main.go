@@ -9,47 +9,58 @@ import (
 	"github.com/DanDovhun/VectorsCalc/two_dim"
 )
 
+var matrix = func() {
+	fmt.Println("Options:")
+	var options = []string{"Add", "Subtract", "Multiply", "Divide"}
+
+	for i, j := range options {
+		fmt.Printf("%v) %v\n", i+1, j)
+	}
+
+	fmt.Print("Choice")
+}
+
+var getInt = func(msg string) int64 {
+	for {
+		var str string
+
+		fmt.Print(msg)
+		fmt.Scanln(&str)
+
+		num, err := strconv.ParseInt(str, 10, 64)
+
+		if err != nil {
+			fmt.Println("Please only enter whole numbers")
+			continue
+		}
+
+		return num
+	}
+}
+
+var getFloat = func(msg string) float64 {
+	for {
+		var str string
+
+		fmt.Print(msg)
+		fmt.Scanln(&str)
+
+		num, err := strconv.ParseFloat(str, 64)
+
+		if err != nil {
+			fmt.Println("Please only enter whole numbers")
+			continue
+		}
+
+		return num
+	}
+}
+
 func main() {
 	options := []string{"2D Vector", "3D Vector", "Matrix"}
 
 	round := func(num float64, to int) float64 {
 		return math.Round(num*math.Pow10(to)) / math.Pow10(to)
-	}
-
-	getInt := func(msg string) int64 {
-		for {
-			var str string
-
-			fmt.Print(msg)
-			fmt.Scanln(&str)
-
-			num, err := strconv.ParseInt(str, 10, 64)
-
-			if err != nil {
-				fmt.Println("Please only enter whole numbers")
-				continue
-			}
-
-			return num
-		}
-	}
-
-	getFloat := func(msg string) float64 {
-		for {
-			var str string
-
-			fmt.Print(msg)
-			fmt.Scanln(&str)
-
-			num, err := strconv.ParseFloat(str, 64)
-
-			if err != nil {
-				fmt.Println("Please only enter whole numbers")
-				continue
-			}
-
-			return num
-		}
 	}
 
 	for {

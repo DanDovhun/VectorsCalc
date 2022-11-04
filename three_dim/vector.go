@@ -14,7 +14,7 @@ type Vector struct {
 	Z    float64
 }
 
-func New(name string, x, y, z float64) Vector {
+var New = func(name string, x, y, z float64) Vector {
 	vec := Vector{
 		Name: name,
 		X:    x,

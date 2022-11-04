@@ -26,28 +26,28 @@ func NewProperties(vec Vector) Properties {
 	return props
 }
 
-func setAlpha(vec Vector) angle.Angle {
+var setAlpha = func(vec Vector) angle.Angle {
 	u := vec.Magnitude()
 
 	return angle.New(math.Acos(vec.X / u))
 }
 
-func setBeta(vec Vector) angle.Angle {
+var setBeta = func(vec Vector) angle.Angle {
 	u := vec.Magnitude()
 	return angle.New(math.Acos(vec.Y / u))
 }
 
-func setGamma(vec Vector) angle.Angle {
+var setGamma = func(vec Vector) angle.Angle {
 	u := vec.Magnitude()
 	return angle.New(math.Acos(vec.Z / u))
 }
 
-func setRotation(vec Vector) angle.Angle {
+var setRotation = func(vec Vector) angle.Angle {
 	v := math.Sqrt(math.Pow(vec.X, 2) + math.Pow(vec.Y, 2))
 	return angle.New(math.Acos(vec.X / v))
 }
 
-func setElevation(vec Vector) angle.Angle {
+var setElevation = func(vec Vector) angle.Angle {
 	u := vec.Magnitude()
 	v := math.Sqrt(math.Pow(vec.X, 2) + math.Pow(vec.Y, 2))
 

@@ -7,7 +7,7 @@ type Angle struct {
 	Degrees float64
 }
 
-func New(radians float64) Angle {
+var New = func(radians float64) Angle {
 	degrees := radians * 180 / math.Pi
 
 	return Angle{
